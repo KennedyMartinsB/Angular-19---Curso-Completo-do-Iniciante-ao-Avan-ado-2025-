@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// 2. Reset de margens e preenchimentos para elementos comuns
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
