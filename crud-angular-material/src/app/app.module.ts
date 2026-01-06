@@ -10,7 +10,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { ConsultaComponent } from './components/consulta/consulta.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,12 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatCardModule,
+    MatIconModule,
+    MatFormFieldModule,
+    FlexLayoutModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
