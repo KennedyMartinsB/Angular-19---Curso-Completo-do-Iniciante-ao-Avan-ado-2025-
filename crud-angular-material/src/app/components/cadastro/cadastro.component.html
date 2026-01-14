@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <div fxLayout="column" fxFlex="900px">
-    <form class="mt-60" #clientesFrm="ngForm">
+    <form class="mt-60" #clientesFrm="ngForm" (ngSubmit)="salvarCliente()">
       <mat-card>
          <mat-card-header>
           <mat-card-title>
@@ -12,7 +12,7 @@
             <div fxlayout="column" fxFlex="400">
               <mat-form-field class="full-width">
                 <mat-label>Nome: *</mat-label>
-                <input matInput type="text" placeholder="Ex: José da silva"/>
+                <input matInput [(ngModel)]="cliente.nome" name="nome" type="text" placeholder="Ex: José da silva"/>
               </mat-form-field>
             </div>
 
@@ -24,7 +24,7 @@
                   <mat-label>
                     Email: *
                   </mat-label>
-                  <input type="email" placeholder="Digite seu email" matInput />
+                  <input [(ngModel)]="cliente.email" name="email" type="email" placeholder="Digite seu email" matInput />
                 </mat-form-field>
             </div>
           </div>
@@ -35,7 +35,7 @@
                 <mat-label>
                   CPF: *
                 </mat-label>
-                <input type="cpf" placeholder="Digite seu cpf" matInput />
+                <input [(ngModel)]="cliente.cpf" name="cpf" type="cpf" placeholder="Digite seu cpf" matInput />
             </mat-form-field>
             </div>
           </div>
@@ -46,13 +46,13 @@
                 <mat-label>
                   Data de nascimento: *
                 </mat-label>
-                <input type="email" placeholder="Digite sua data de nascimento" matInput />
+                <input [(ngModel)]="cliente.dataNascimento" name="dataNascimento" type="email" placeholder="Digite sua data de nascimento" matInput />
               </mat-form-field>
             </div>
           </div>
          </mat-card-content>
          <mat-card-actions style="padding: 0px 16px 16px;">
-              <button mat-flat-button color="primary">
+              <button mat-flat-button color="primary" type="submit">
                 <mat-icon fontIcon="save"></mat-icon>
                 Salvar
               </button>
