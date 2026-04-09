@@ -13,7 +13,12 @@ export class ClienteService {
   // Interface cliente salvei em uma pasta a parte chamada interface
   // Na aula a interface cliente.ts fica na raiz da pasta cadastro
   saveClient(cliente: Cliente) {
-    console.log(cliente)
+    const storage = this.getStorage()
+    //adicionando cliente ao array
+    storage.push(cliente)
+
+    localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(storage))
+    // console.log(cliente)
   }
 
   getStorage(): Cliente[] {
