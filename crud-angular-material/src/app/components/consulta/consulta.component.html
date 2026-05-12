@@ -21,7 +21,7 @@
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <button type="submit" mat-flat-button color="primary">
+        <button type="submit" mat-flat-button color="primary">
             <mat-icon fontIcon="search"/>
             Pesquisar
           </button>
@@ -29,5 +29,49 @@
       </mat-card>
     </form>
   </div>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center" class="mt-40">
+  <div fxLayout="column" fxFlex="900px">
+    <mat-card appearance="outlined" class="p-2">
+      <mat-card-header >
+        <mat-card-title>
+          Resultado
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table mat-table [dataSource]="clientList" class="full-width">
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>id</th>
+            <td mat-cell *matCellDef="let client">{{ client.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let client">{{ client.nome }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef>CPF</th>
+            <td mat-cell *matCellDef="let client">{{ client.cpf }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="dataNascimento">
+            <th mat-header-cell *matHeaderCellDef>Data De Nascimento</th>
+            <td mat-cell *matCellDef="let client">{{ client.dataNascimento }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let client">{{ client.email }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="columnsTable"></tr>
+          <tr mat-row *matRowDef="let client; columns: columnsTable;"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

@@ -10,7 +10,7 @@ import { ClienteService } from 'src/app/service/cliente.service';
 export class ConsultaComponent implements OnInit{
 
   clientList: Cliente[] = [];
-
+  columnsTable: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email']
   constructor(private clientService: ClienteService){ }
 
   ngOnInit(): void {
