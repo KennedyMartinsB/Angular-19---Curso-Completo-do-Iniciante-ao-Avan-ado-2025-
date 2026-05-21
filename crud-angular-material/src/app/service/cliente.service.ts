@@ -21,8 +21,13 @@ export class ClienteService {
     // console.log(cliente)
   }
 
-  searchClient(name: String): Cliente[]{
-    return this.getStorage();
+  searchClient(nameSearch: string): Cliente[]{
+    const clients = this.getStorage();
+    if(!nameSearch){
+      return clients
+    }
+    return clients.filter(client => client.nome?.indexOf(nameSearch) !== -1)
+    // return this.getStorage();
   }
 
   private getStorage(): Cliente[] {
