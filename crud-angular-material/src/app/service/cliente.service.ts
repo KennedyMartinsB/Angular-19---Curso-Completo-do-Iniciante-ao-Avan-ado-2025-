@@ -30,6 +30,12 @@ export class ClienteService {
     // return this.getStorage();
   }
 
+  getClientById(id: string): Cliente | undefined{
+    const clientes = this.getStorage();
+    // Utilizamos o find para encontrar um item já o filter para retornar um array
+    return clientes.find(cliente => cliente.id === id)
+  }
+
   private getStorage(): Cliente[] {
     const repositoryClients = localStorage.getItem(ClienteService.REPO_CLIENTES)
 
