@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/interface/cliente';
 import { ClienteService } from 'src/app/service/cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -14,15 +15,21 @@ export class CadastroComponent implements OnInit{
   cliente: Cliente = Cliente.newCliente();
   update: boolean = false;
 
-  constructor(private service: ClienteService, private route: ActivatedRoute){}
+  constructor(private service: ClienteService, private route: ActivatedRoute, private router: Router){}
   // Propriedade route serve para capturar os dados da rota que foi acessada
 
   salvarCliente() {
-    this.service.saveClient(this.cliente);
-    // Cria um novo cliente e consequentemente um novo UUID e limpar o formulário
-    this.cliente = Cliente.newCliente();
-    // console.log("Cliente cadastrado com sucesso!!!")
-    // console.log("Dados do cliente: ", this.cliente)
+    if(!this.update){
+      this.service.saveClient(this.cliente);
+      // Cria um novo cliente e consequentemente um novo UUID e limpar o formulário
+      this.cliente = Cliente.newCliente();
+      // console.log("Cliente cadastrado com sucesso!!!")
+      // console.log("Dados do cliente: ", this.cliente)
+    } else{
+      this.service.toUpdateClient(this.cliente)
+      this.router.navigate(['/consulta'])
+    }
+
   }
 
   ngOnInit() {

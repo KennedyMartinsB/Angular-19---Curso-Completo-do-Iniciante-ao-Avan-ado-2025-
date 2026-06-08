@@ -52,14 +52,16 @@
           </div>
          </mat-card-content>
          <mat-card-actions style="padding: 0px 16px 16px;">
-              <button mat-flat-button color="primary" type="submit">
+              <button mat-flat-button color="primary" type="submit" *ngIf="!update; else btnAtt">
                 <mat-icon fontIcon="save"></mat-icon>
                 Salvar
               </button>
-              <button mat-flat-button color="primary" class="ml-5">
-                <mat-icon fontIcon="refresh"></mat-icon>
-                Atualizar
-              </button>
+              <ng-template #btnAtt>
+                <button mat-flat-button color="primary" class="ml-5" >
+                  <mat-icon fontIcon="refresh"></mat-icon>
+                  Atualizar
+                </button>
+              </ng-template>
               <button mat-flat-button color="accent" class="ml-5">
                 <mat-icon fontIcon="backspace"></mat-icon>
                 Limpar
