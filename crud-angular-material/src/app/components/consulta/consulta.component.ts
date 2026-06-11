@@ -13,6 +13,8 @@ export class ConsultaComponent implements OnInit{
   nameSearch: string = '';
   clientList: Cliente[] = [];
   columnsTable: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email', 'acoes'];
+  delete: boolean = false;
+
   constructor(private clientService: ClienteService, private router: Router){ }
 
   ngOnInit(): void {
@@ -28,5 +30,15 @@ export class ConsultaComponent implements OnInit{
     // Fazendo a troca de pagina e passando o id da consulta para o formulário
     console.log("Id recebido: ", id)
     this.router.navigate(['/cadastro'],{queryParams: {"id": id}} )
+  }
+
+  prepareDelete() {
+    this.delete = true;
+  }
+
+  deleteClient(cliente: Cliente) {
+    this.clientService.delete(cliente);
+    this.clientList = this.clientService.searchClient('');
+    this.delete = false;
   }
 }

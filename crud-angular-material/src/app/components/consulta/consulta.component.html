@@ -73,7 +73,17 @@
             <td mat-cell *matCellDef="let client">
               <button type="button" mat-button (click)="prepareToEdit(client.id)">
                 <mat-icon fontIcon="edit"></mat-icon>
-                editar
+                Editar
+              </button>
+
+              <button type="button" mat-button *ngIf="!delete" (click)="prepareDelete()">
+                <mat-icon fontIcon="delete"></mat-icon>
+                Deletar
+              </button>
+
+              <button type="button" mat-button *ngIf="delete" (click)="deleteClient(client)">
+                <mat-icon fontIcon="question_mark"></mat-icon>
+                Confirmar
               </button>
             </td>
           </ng-container>

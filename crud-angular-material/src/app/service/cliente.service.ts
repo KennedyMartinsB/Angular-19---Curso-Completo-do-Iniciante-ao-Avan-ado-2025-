@@ -41,6 +41,14 @@ export class ClienteService {
     // return this.getStorage();
   }
 
+  delete(cliente: Cliente) {
+    const storage = this.getStorage();
+    // Filtro que pega todos os clientes exceto o selecionado
+    const list = storage.filter(c => c.id !== cliente.id)
+
+    localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(list))
+  }
+
   getClientById(id: string): Cliente | undefined{
     const clientes = this.getStorage();
     // Utilizamos o find para encontrar um item já o filter para retornar um array
