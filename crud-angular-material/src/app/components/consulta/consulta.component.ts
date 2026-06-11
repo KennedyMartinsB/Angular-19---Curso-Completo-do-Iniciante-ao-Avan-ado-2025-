@@ -13,7 +13,7 @@ export class ConsultaComponent implements OnInit{
   nameSearch: string = '';
   clientList: Cliente[] = [];
   columnsTable: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email', 'acoes'];
-  delete: boolean = false;
+  // delete: boolean = false;
 
   constructor(private clientService: ClienteService, private router: Router){ }
 
@@ -32,13 +32,13 @@ export class ConsultaComponent implements OnInit{
     this.router.navigate(['/cadastro'],{queryParams: {"id": id}} )
   }
 
-  prepareDelete() {
-    this.delete = true;
+  prepareDelete(cliente: Cliente) {
+    cliente.delete = true;
   }
 
   deleteClient(cliente: Cliente) {
     this.clientService.delete(cliente);
     this.clientList = this.clientService.searchClient('');
-    this.delete = false;
+    // this.delete = false;
   }
 }

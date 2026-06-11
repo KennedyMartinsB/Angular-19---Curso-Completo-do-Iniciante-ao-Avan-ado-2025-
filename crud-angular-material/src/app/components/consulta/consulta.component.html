@@ -76,12 +76,12 @@
                 Editar
               </button>
 
-              <button type="button" mat-button *ngIf="!delete" (click)="prepareDelete()">
+              <button type="button" mat-button *ngIf="!client.delete" (click)="prepareDelete(client)">
                 <mat-icon fontIcon="delete"></mat-icon>
                 Deletar
               </button>
 
-              <button type="button" mat-button *ngIf="delete" (click)="deleteClient(client)">
+              <button type="button" mat-button *ngIf="client.delete" (click)="deleteClient(client)">
                 <mat-icon fontIcon="question_mark"></mat-icon>
                 Confirmar
               </button>
