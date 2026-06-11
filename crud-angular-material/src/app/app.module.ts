@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask'
 
 
 @NgModule({
@@ -39,9 +40,12 @@ import { MatTableModule } from '@angular/material/table';
     FlexLayoutModule,
     MatInputModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    NgxMaskDirective
   ],
-  providers: [],
+  providers: [
+    provideNgxMask()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
