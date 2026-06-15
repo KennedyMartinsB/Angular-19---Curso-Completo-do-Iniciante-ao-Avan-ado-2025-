@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/interface/cliente';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastro',
@@ -14,6 +15,7 @@ export class CadastroComponent implements OnInit{
   // Criando novo cliente utilizando o metodo estático
   cliente: Cliente = Cliente.newCliente();
   update: boolean = false;
+  snackBar: MatSnackBar = inject(MatSnackBar)
 
   constructor(private service: ClienteService, private route: ActivatedRoute, private router: Router){}
   // Propriedade route serve para capturar os dados da rota que foi acessada
@@ -23,13 +25,19 @@ export class CadastroComponent implements OnInit{
       this.service.saveClient(this.cliente);
       // Cria um novo cliente e consequentemente um novo UUID e limpar o formulário
       this.cliente = Cliente.newCliente();
+      this.showMessage("Salvo com sucesso!!!")
       // console.log("Cliente cadastrado com sucesso!!!")
       // console.log("Dados do cliente: ", this.cliente)
     } else{
       this.service.toUpdateClient(this.cliente)
+      this.showMessage("Atualizado com sucesso!!!")
       this.router.navigate(['/consulta'])
     }
 
+  }
+
+  showMessage(msg: string) {
+    this.snackBar.open(msg, "Ok")
   }
 
   ngOnInit() {

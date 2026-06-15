@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/interface/cliente';
 import { ClienteService } from 'src/app/service/cliente.service';
@@ -13,6 +14,7 @@ export class ConsultaComponent implements OnInit{
   nameSearch: string = '';
   clientList: Cliente[] = [];
   columnsTable: string[] = ['id', 'nome', 'cpf', 'dataNascimento', 'email', 'acoes'];
+  deleteMsgSnackBar: MatSnackBar = inject(MatSnackBar)
   // delete: boolean = false;
 
   constructor(private clientService: ClienteService, private router: Router){ }
@@ -39,6 +41,11 @@ export class ConsultaComponent implements OnInit{
   deleteClient(cliente: Cliente) {
     this.clientService.delete(cliente);
     this.clientList = this.clientService.searchClient('');
+    this.showDeleteSnackbar("Deletado com sucesso!!!")
     // this.delete = false;
+  }
+
+  showDeleteSnackbar(msg: string) {
+    this.deleteMsgSnackBar.open(msg, "Ok")
   }
 }

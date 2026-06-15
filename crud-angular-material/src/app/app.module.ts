@@ -17,7 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask'
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask'
     MatInputModule,
     FormsModule,
     MatTableModule,
-    NgxMaskDirective
+    NgxMaskDirective,
+    MatSnackBarModule
   ],
   providers: [
     provideNgxMask()
