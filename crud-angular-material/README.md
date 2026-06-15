@@ -1,27 +1,57 @@
-# CrudAngularMaterial
+# CRUD Angular Material
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.6.
+Aplicação de cadastro e consulta de clientes desenvolvida com **Angular 16** e **Angular Material**. Os dados são armazenados no `localStorage` do navegador — não é necessário backend.
 
-## Development server
+## Pré-requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Node.js](https://nodejs.org/) (versão 16 ou superior recomendada)
+- npm (instalado junto com o Node.js)
 
-## Code scaffolding
+## Como rodar o projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 1. Clonar ou baixar o repositório
 
-## Build
+```bash
+cd crud-angular-material
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2. Instalar as dependências
 
-## Running unit tests
+```bash
+npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 3. Iniciar o servidor de desenvolvimento
 
-## Running end-to-end tests
+```bash
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Ou, se preferir usar o Angular CLI diretamente:
 
-## Further help
+```bash
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 4. Acessar no navegador
+
+Abra [http://localhost:4200](http://localhost:4200). A aplicação recarrega automaticamente ao alterar os arquivos do projeto.
+
+## Rotas da aplicação
+
+| Rota        | Descrição                          |
+|-------------|------------------------------------|
+| `/cadastro` | Formulário para cadastrar/editar clientes |
+| `/consulta` | Listagem e busca de clientes       |
+
+## Outros comandos úteis
+
+| Comando        | Descrição                                      |
+|----------------|------------------------------------------------|
+| `npm run build` | Gera o build de produção na pasta `dist/`     |
+| `npm test`      | Executa os testes unitários (Karma + Jasmine) |
+
+## Observações
+
+- Os clientes ficam salvos no `localStorage` do navegador. Limpar o cache ou usar outro navegador remove os dados.
+- Projeto gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 16.0.6.
