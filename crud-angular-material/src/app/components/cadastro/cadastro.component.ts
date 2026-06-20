@@ -4,6 +4,8 @@ import { Cliente } from 'src/app/interface/cliente';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BrasilApiService } from '../../service/brasil-api.service';
+import { Estado, Municipio } from 'src/app/interface/brasil-api/brasilapi.models';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,8 +18,10 @@ export class CadastroComponent implements OnInit{
   cliente: Cliente = Cliente.newCliente();
   update: boolean = false;
   snackBar: MatSnackBar = inject(MatSnackBar)
+  states: Estado[] = [];
+  municipality: Municipio[] = [];
 
-  constructor(private service: ClienteService, private route: ActivatedRoute, private router: Router){}
+  constructor(private service: ClienteService, private route: ActivatedRoute, private router: Router, private BrasilApiService: BrasilApiService){}
   // Propriedade route serve para capturar os dados da rota que foi acessada
 
   salvarCliente() {
@@ -57,6 +61,15 @@ export class CadastroComponent implements OnInit{
         // Caso o id do cliente não exista ele cria um novo
         // this.cliente = this.service.getClientById(id) || Cliente.newCliente();
       }
+    })
+    this.loadUfs();
+  }
+
+  loadUfs() {
+    return this.BrasilApiService.getUfs().subscribe({
+      next: listStates => this.states = listStates,
+      // next: listStates => console.log("Lista de estados ", listStates),
+      error: erro => console.log("Ocorreu um erro ", erro)
     })
   }
 }
