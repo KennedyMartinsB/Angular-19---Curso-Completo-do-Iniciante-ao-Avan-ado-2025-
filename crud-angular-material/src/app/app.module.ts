@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +47,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule
   ],
   providers: [
-    provideNgxMask()
+    provideNgxMask(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
