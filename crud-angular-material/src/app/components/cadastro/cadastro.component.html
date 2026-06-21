@@ -50,6 +50,22 @@
               </mat-form-field>
             </div>
           </div>
+
+          <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+            <div div fxlayout="column" fxFlex="400">
+              <mat-form-field class="w-[400px]">
+                <mat-label>
+                  UF*:
+                </mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let uf of states" [value]="uf.sigla">
+                    {{ uf.sigla }} - {{ uf.nome }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
          </mat-card-content>
          <mat-card-actions style="padding: 0px 16px 16px;">
               <button mat-flat-button color="primary" type="submit" *ngIf="!update; else btnAtt">
