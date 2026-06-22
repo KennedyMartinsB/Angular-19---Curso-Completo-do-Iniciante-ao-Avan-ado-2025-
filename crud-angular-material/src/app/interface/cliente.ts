@@ -6,7 +6,9 @@ export class Cliente{
   cpf?: string;
   dataNascimento?: string;
   email?: string;
-  delete: boolean = false
+  delete: boolean = false;
+  uf?: string;
+  municipio?: string;
 
   // Método estático para criação do cliente
   // Cada cliente cadastrado receberá instantâneamente um id

@@ -57,9 +57,24 @@
                 <mat-label>
                   UF*:
                 </mat-label>
-                <mat-select>
+                <mat-select [(value)]="cliente.uf" (selectionChange)="loadMuni($event)">
                   <mat-option *ngFor="let uf of states" [value]="uf.sigla">
                     {{ uf.sigla }} - {{ uf.nome }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+            <div div fxlayout="column" fxFlex="400">
+              <mat-form-field class="w-[400px]">
+                <mat-label>
+                  Municipio*:
+                </mat-label>
+                <mat-select [(value)]="cliente.municipio">
+                  <mat-option *ngFor="let m of municipality" [value]="m.nome">
+                    {{ m.nome }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>

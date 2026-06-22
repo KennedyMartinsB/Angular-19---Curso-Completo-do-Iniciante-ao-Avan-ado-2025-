@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BrasilApiService } from '../../service/brasil-api.service';
 import { Estado, Municipio } from 'src/app/interface/brasil-api/brasilapi.models';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-cadastro',
@@ -57,6 +58,9 @@ export class CadastroComponent implements OnInit{
         if(clientFinded){
           this.update = true
           this.cliente = clientFinded;
+          if(this.cliente.uf){
+            this.loadMuni(this.cliente.uf);
+          }
         }
         // Caso o id do cliente não exista ele cria um novo
         // this.cliente = this.service.getClientById(id) || Cliente.newCliente();
@@ -70,6 +74,14 @@ export class CadastroComponent implements OnInit{
       next: listStates => this.states = listStates,
       // next: listStates => console.log("Lista de estados ", listStates),
       error: erro => console.log("Ocorreu um erro ", erro)
+    })
+  }
+
+  loadMuni(event: MatSelectChange | string) {
+    const ufSelected = typeof event === 'string' ? event : event.value;
+    this.BrasilApiService.getMunicipios(ufSelected).subscribe({
+      next: listMunicipios => this.municipality = listMunicipios,
+      error: erro => console.log("Ocorreu um erro", erro)
     })
   }
 }
