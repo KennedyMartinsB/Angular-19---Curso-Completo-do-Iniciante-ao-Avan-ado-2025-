@@ -3,13 +3,14 @@
     Nova Categoria
   </h2>
   <hr/>
-  <form id="categoriaForm">
+  <form id="categoriaForm" [formGroup]="camposForm" (ngSubmit)="salvar()">
     <div class="mb-4 mt-4">
       <label class="block text-gray-600 font-medium mb-2">Nome</label>      <!-- Adicionado "border" aqui -->
       <input
         type="text"
         id="nome"
         name="nome"
+        formControlName="nome"
         placeholder="Ex: Restaurantes, Praias, Shoppings"
         class="w-full outline-none border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 p-2"
         required
@@ -25,6 +26,8 @@
         name="descricao"
         rows="4"
         id="descricao"
+        formControlName="descricao"
+        placeholder="Ex: Restaurantes, Praias, Shoppings"
         class="w-full outline-none border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 p-2"
         required
       ></textarea>
