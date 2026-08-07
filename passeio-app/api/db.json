@@ -9,6 +9,11 @@
       "nome": "Restaurantes Atualizado",
       "descricao": "Lugares para alimentação.",
       "id": "4jefv1if3rs"
+    },
+    {
+      "nome": "Praias",
+      "descricao": "Lugares para se banhar no mar\n",
+      "id": "N_s6cLfsYy8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
