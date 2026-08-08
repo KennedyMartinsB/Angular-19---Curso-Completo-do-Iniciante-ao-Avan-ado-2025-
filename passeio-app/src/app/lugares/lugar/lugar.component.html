@@ -4,9 +4,34 @@
   </h2>
   <hr/>
 
-  <form id="lugarForm">
+  <form id="lugarForm" [formGroup]="camposForm" (ngSubmit)="salvar()">
+    <div class="mb-4 mt-4">
+      <label for="nome" class="block text-gray-600 font-medium mb-2">Nome do lugar</label>
+      <input type="text" class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 p-2" id="nome" name="nome" formControlName="nome" placeholder="Ex: Praia do sol" required/>
+    </div>
 
+    <div class="mb-4 mt-4">
+      <h2 class="text-2xl font-semibold text-gray-700 mt-4 mb-4">
+      Categoria
+      </h2>
+      <hr/>
+    </div>
+
+    <div class="mb-4 mt-4">
+      <label for="localizacao" class="block text-gray-600 font-medium mb-2">Localização</label>
+      <input type="text" class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 p-2" id="localizacao" name="localizacao" formControlName="localizacao" placeholder="Ex: São Paulo" required/>
+    </div>
+
+    <div class="mb-4 mt-4">
+      <label for="urlFoto" class="block text-gray-600 font-medium mb-2">URL da foto</label>
+      <input type="text" class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 p-2" id="urlFoto" name="urlFoto" formControlName="urlFoto" placeholder="Ex: https//exemplo.com/foto.jpg" required/>
+    </div>
+
+    <div class="mb-4 mt-4">
+      <label for="avaliacao" class="block text-gray-600 font-medium mb-2">Avaliação</label>
+      <!-- <input type="text" class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400 p-2" id="avaliacao" name="avaliacao" formControlName="avaliacao" required/> -->
+    </div>
+
+    <button type="submit" class="w-full bg-blue-600 p-2 rounded text-white font-semibold shadow hover:brightness-90">Cadastrar Lugar</button>
   </form>
-
-  <button type="submit" class="w-full bg-blue-600 p-2 rounded text-white font-semibold shadow hover:brightness-90">Cadastrar Lugar</button>
 </div>
