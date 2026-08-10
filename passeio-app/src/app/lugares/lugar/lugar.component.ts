@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Categoria } from 'src/app/categorias/categoria';
+import { CategoriaService } from 'src/app/categorias/categoria.service';
 
 @Component({
   selector: 'app-lugar',
   templateUrl: './lugar.component.html',
   styleUrls: ['./lugar.component.scss']
 })
-export class LugarComponent {
+export class LugarComponent implements OnInit {
   camposForm: FormGroup;
   categorias: Categoria[] = [];
 
-  constructor() {
+  constructor(private categoriaService: CategoriaService) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       categorias: new FormControl('', Validators.required),
@@ -23,6 +24,12 @@ export class LugarComponent {
 
   salvar() {
     console.log("Valores: ", this.camposForm.value)
+  }
+
+  ngOnInit(): void {
+    this.categoriaService.obterTodas().subscribe({
+      next: (listaCategorias) => this.categorias = listaCategorias
+    })
   }
 }
 
