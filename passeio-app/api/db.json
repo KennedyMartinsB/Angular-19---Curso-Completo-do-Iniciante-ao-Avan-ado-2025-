@@ -16,5 +16,15 @@
       "id": "N_s6cLfsYy8"
     }
   ],
+  "lugares": [
+    {
+      "nome": "Fatz Delicia",
+      "categorias": "Restaurantes",
+      "localizacao": "São Paulo",
+      "urlFoto": "",
+      "avaliacao": "4",
+      "id": "2WjvdPTN0TM"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
