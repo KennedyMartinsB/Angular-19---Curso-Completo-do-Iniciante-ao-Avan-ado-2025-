@@ -11,12 +11,12 @@ import { LugarService } from '../lugar.service';
 })
 export class LugarComponent implements OnInit {
   camposForm: FormGroup;
-  categorias: Categoria[] = [];
+  categoria: Categoria[] = [];
 
   constructor(private categoriaService: CategoriaService, private service: LugarService) {
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
-      categorias: new FormControl('', Validators.required),
+      categoria: new FormControl('', Validators.required),
       localizacao: new FormControl('', Validators.required),
       urlFoto: new FormControl('', Validators.required),
       avaliacao: new FormControl('', Validators.required),
@@ -25,7 +25,7 @@ export class LugarComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoriaService.obterTodas().subscribe({
-      next: (listaCategorias) => this.categorias = listaCategorias,
+      next: (listaCategorias) => this.categoria = listaCategorias,
       error: erro => console.error('Houve um erro ao carregar as categorias: ', erro)
     })
     // this.listarLugares();
@@ -52,6 +52,10 @@ export class LugarComponent implements OnInit {
     })
   }
 
+  isCampoInvalido(nomeCampo: string) : boolean{
+    const campo = this.camposForm.get(nomeCampo);
+    return campo?.invalid && campo?.touched && campo?.errors?.['required'];
+  }
 }
 
 
