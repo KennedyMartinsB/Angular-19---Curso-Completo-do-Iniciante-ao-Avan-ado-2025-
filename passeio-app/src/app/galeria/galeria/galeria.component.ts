@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Categoria } from 'src/app/categorias/categoria';
 import { CategoriaService } from 'src/app/categorias/categoria.service';
+import { LugarService } from 'src/app/lugares/lugar.service';
+import { Lugar } from '../../lugares/lugar';
 
 @Component({
   selector: 'app-galeria',
@@ -9,19 +9,19 @@ import { CategoriaService } from 'src/app/categorias/categoria.service';
   styleUrls: ['./galeria.component.scss']
 })
 export class GaleriaComponent implements OnInit{
-  categoria: Categoria[] = []
+  lugar: Lugar[] = []
 
   ngOnInit() {
     this.carregarCategorias()
   }
 
-  constructor(private categoriasService: CategoriaService) {}
+  constructor(private lugarService: LugarService) {}
 
   carregarCategorias() {
-    this.categoriasService.obterTodas().subscribe({
-      next: (categorias) => {
-        console.log('Categorias Recebidas: ', categorias)
-        this.categoria = categorias
+    this.lugarService.obterTodos().subscribe({
+      next: (lugares) => {
+        console.log('Categorias Recebidas: ', lugares)
+        this.lugar = lugares
       },
       error: erro => console.error('Houve um erro ao carregar categorias: ', erro)
     })
