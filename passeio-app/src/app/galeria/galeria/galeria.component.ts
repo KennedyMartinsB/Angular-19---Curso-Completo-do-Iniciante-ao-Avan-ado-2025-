@@ -13,6 +13,9 @@ export class GaleriaComponent implements OnInit{
   categoriasFiltro: Categoria[] = [];
   lugares: Lugar[] = [];
 
+  nomeFiltro: string = '';
+  categoriaFiltro: string = '';
+
   ngOnInit() {
     this.carregarCategorias();
     this.carregarLugares();
@@ -21,7 +24,7 @@ export class GaleriaComponent implements OnInit{
   constructor(private lugarService: LugarService, private categoriaService: CategoriaService) {}
 
   carregarCategorias() {
-    this.lugarService.obterTodos().subscribe({
+    this.categoriaService.obterTodas().subscribe({
       next: (categorias) => {
         console.log('Categorias Recebidas: ', categorias)
         this.categoriasFiltro = categorias
@@ -37,6 +40,13 @@ export class GaleriaComponent implements OnInit{
         this.lugares = lugaresList
       },
       error: erro => console.error('Houve um erro ao carregar a lista de lugares: ', erro)
+    })
+  }
+
+  filtrar() {
+    // console.log("valores digitados: ", this.nomeFiltro, this.categoriaFiltro)
+    this.lugarService.filtrar(this.nomeFiltro, this.categoriaFiltro).subscribe({
+      next: (resultado) => this.lugares = resultado
     })
   }
 
