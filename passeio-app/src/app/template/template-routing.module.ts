@@ -5,7 +5,7 @@ import { CategoriasModule } from '../categorias/categorias.module';
 
 const routes: Routes = [
   {
-    path: 'paginas',
+    path: '',
     component: LayoutComponent,
     children: [
       {
