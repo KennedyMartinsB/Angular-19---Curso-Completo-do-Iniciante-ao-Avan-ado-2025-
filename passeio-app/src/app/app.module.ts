@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { LandingpageComponent } from './landingpage/landingpage.component'
-
-
+import { provideOAuthClient } from 'angular-oauth2-oidc';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +19,9 @@ import { LandingpageComponent } from './landingpage/landingpage.component'
     FormsModule
   ],
   providers: [
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideOAuthClient()
+
   ],
   bootstrap: [AppComponent]
 })
