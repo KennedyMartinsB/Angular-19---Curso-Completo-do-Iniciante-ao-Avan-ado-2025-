@@ -2,12 +2,16 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Lugar } from './lugar';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
 export class LugarService {
-  private readonly url = 'http://localhost:3000/lugares'
+
+  apiUrl: string = environment.apiUrl;
+
+  private readonly url = this.apiUrl + '/lugares'
+  // private readonly url = 'http://localhost:3000/lugares'
 
   constructor(private http: HttpClient) { }
 

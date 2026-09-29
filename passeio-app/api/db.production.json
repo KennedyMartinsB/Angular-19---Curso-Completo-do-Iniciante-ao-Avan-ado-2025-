@@ -1,0 +1,37 @@
+{
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Restaurantes",
+      "descricao": "Lugares para alimentação"
+    },
+    {
+      "nome": "Restaurantes Atualizado",
+      "descricao": "Lugares para alimentação.",
+      "id": "4jefv1if3rs"
+    },
+    {
+      "nome": "Praias",
+      "descricao": "Lugares para se banhar no mar\n",
+      "id": "N_s6cLfsYy8"
+    }
+  ],
+  "lugares": [
+    {
+      "nome": "Fatz Delicia",
+      "categorias": "Restaurantes",
+      "localizacao": "São Paulo",
+      "urlFoto": "",
+      "avaliacao": "4",
+      "id": "2WjvdPTN0TM"
+    },
+    {
+      "nome": "Notourious Fish",
+      "categoria": "Restaurantes",
+      "localizacao": "São Paulo",
+      "urlFoto": "https://i.pinimg.com/474x/16/d4/aa/16d4aa11ad085adfcef47e936aa1b92f.jpg",
+      "avaliacao": "3",
+      "id": "09n1SR-KX6Q"
+    }
+  ]
+}
